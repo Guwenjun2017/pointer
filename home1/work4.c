@@ -68,5 +68,9 @@ int main(int argc, char **argv)
 	 */
     }
 
+    free(ptr_var1);
+    free(ptr_cvar1);
+    free(cptr_var1);
+    free(cptr_var2);
     return 0;
 }
