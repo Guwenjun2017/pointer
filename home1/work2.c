@@ -28,5 +28,7 @@ int main(int argc, char **argv)
    else
 	printf("%d,%d\n", *ptr1, *ptr2);
 
+   //free(ptr1);
+   //free(ptr2);
    return 0;
 }
