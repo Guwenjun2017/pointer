@@ -3,6 +3,7 @@
 
 void changeAndOutputChanged(int *num1, int *num2, int *num3);
 void displayUnchange(int *num1, int *num2, int *num3);
+void change(int *num1, int *num2, int *num3);
 
 int main(int argc, char **argv)
 {
