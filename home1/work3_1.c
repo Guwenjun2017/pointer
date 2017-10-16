@@ -23,5 +23,6 @@ int main(int argc, char **argv)
 	printf("address: %p and value: %d\n", Ptr_arr + i, *(Ptr_arr + i));
     }
 
+    free(Ptr_arr);
     return 0;
 }
