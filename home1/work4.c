@@ -5,8 +5,8 @@
  * *========* *** *============================================== */
 #include <stdio.h>
 #include <stdlib.h>
-#define add 1
-#define addtime 5
+#define ADD 1
+#define ADDTIME 5
 
 int main(int argc, char **argv)
 {
@@ -23,12 +23,12 @@ int main(int argc, char **argv)
     scanf("%d", &cvar1);
     void test1(int var1, int *ptr_var1) {
 	ptr_var1 = &var1;
-	for(int i = 0; i < addtime; i++) {
-	    var1 += add;
+	for(int i = 0; i < ADDTIME; i++) {
+	    var1 += ADD;
 	}
 	printf("var1:%d\n", var1);
-	for(int j = 0; j < addtime; j++) {
-	    (*ptr_var1) += add;
+	for(int j = 0; j < ADDTIME; j++) {
+	    (*ptr_var1) += ADD;
 	}
 	printf("*ptr_var1:%d\n", *ptr_var1);
     }
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
     void test2(int var2, const int cvar2, const int *ptr_cvar2) {
 	ptr_cvar2 = &var2;
 	//for(int i = 0; i < addtime; i++) {
-	    //(*ptr_cvar2) += add;
+	    //(*ptr_cvar2) += ADD;
 	//}
 	printf("ptr_cvar2:%p\n", ptr_cvar2);
 	ptr_cvar2 = &cvar2;	
@@ -48,11 +48,11 @@ int main(int argc, char **argv)
     void test3(int var3, const int cvar4, int *const cptr_var1, int *const cptr_var2) {
 	*cptr_var1 = var3;
 	*cptr_var2 = cvar4;
-	for(int i = 0; i < addtime; i++) {
-	    (*cptr_var1) += add;
+	for(int i = 0; i < ADDTIME; i++) {
+	    (*cptr_var1) += ADD;
 	}
-	for(int j = 0; j < addtime; j++) {
-	    (*cptr_var2) += add;
+	for(int j = 0; j < ADDTIME; j++) {
+	    (*cptr_var2) += ADD;
 	}
 	printf("*cptr_var3:%d\n", *cptr_var1);
 	printf("*cptr_var4:%d\n", *cptr_var2);

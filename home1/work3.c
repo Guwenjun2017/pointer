@@ -24,7 +24,7 @@ int main(int argc, char **argv)
     oneCircle(ptr_arr, size, add);
     while(j == 1) {
 	printf("\n");
-	printf("Continue ?[输入y继续n退出]\n");
+	printf("Continue ?[输入y继续n退出]");
 	getchar();
 	scanf("%c", &character);
 	if (character != 'y')
