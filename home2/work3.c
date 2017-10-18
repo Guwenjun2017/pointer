@@ -51,16 +51,17 @@ int main(int argc, char **argv)
 		break;
 	}
     }
+    //返回函数指针
     int evaluate(char opcode, int num1, int num2) {
 	fptrOperation operation = select(opcode);
 	return operation(num1, num2);
     }
 
-    printf("%d\n",evaluate('+', num1, num2));
-    printf("%d\n",evaluate('-', num1, num2));
-    printf("%d\n",evaluate('*', num1, num2));
-    printf("%d\n",evaluate('/', num1, num2));
-    printf("%d\n",evaluate('%', num1, num2));
+    printf("+: %d\n",evaluate('+', num1, num2));
+    printf("-: %d\n",evaluate('-', num1, num2));
+    printf("*: %d\n",evaluate('*', num1, num2));
+    printf("/: %d\n",evaluate('/', num1, num2));
+    printf("%%: %d\n",evaluate('%', num1, num2));
 
     return 0;
 }

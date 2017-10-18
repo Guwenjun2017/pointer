@@ -25,11 +25,11 @@ int main(int argc,char **argv)
 	return operation(num1, num2);
     }
 
-    printf("%d+%d=%d\n", num1, num2, compute(add, num1, num2));
-    printf("%d-%d=%d\n", num1, num2, compute(sub, num1, num2));
-    printf("%d*%d=%d\n", num1, num2, compute(mul, num1, num2));
-    printf("%d/%d=%d\n", num1, num2, compute(div, num1, num2));
-    printf("%d%%%d=%d\n", num1, num2, compute(quyu, num1, num2));
+    printf("+: %d+%d=%d\n", num1, num2, compute(add, num1, num2));
+    printf("-: %d-%d=%d\n", num1, num2, compute(sub, num1, num2));
+    printf("*: %d*%d=%d\n", num1, num2, compute(mul, num1, num2));
+    printf("/: %d/%d=%d\n", num1, num2, compute(div, num1, num2));
+    printf("%%: %d%%%d=%d\n", num1, num2, compute(quyu, num1, num2));
 
     return 0;
 }
