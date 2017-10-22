@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 void swap(int *p1, int *p2) {
     int p;
@@ -14,8 +13,8 @@ void swap(int *p1, int *p2) {
 int main(int argc, char **argv)
 {
    int a,b;
-   int *ptr1 = (int *)malloc(sizeof(int));
-   int *ptr2 = (int *)malloc(sizeof(int));
+   int *ptr1;
+   int *ptr2;
 
    printf("Please input two int value:");
    scanf("%d,%d", &a, &b);
@@ -28,7 +27,5 @@ int main(int argc, char **argv)
    else
 	printf("%d,%d\n", *ptr1, *ptr2);
 
-   //free(ptr1);
-   //free(ptr2);
    return 0;
 }

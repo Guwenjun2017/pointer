@@ -3,12 +3,13 @@
 void sort(int *arr, int size);
 void display(int arr[], int size);
 int compare(int , int);
+
 int main(int argc, char **argv)
 {
-    int size = 10;
     int arr[] = {
 	3,0,4,1,6,7,8,9,2,5
     };
+    int size = sizeof(arr) / sizeof(int);
 
     sort(arr, size);
     display(arr, size);
