@@ -2,6 +2,20 @@
 #include <stdlib.h>
 #define SIZE 35
 
+char *getLine(void);
+int main(int argc, char **argv)
+{
+    printf("Please input string:\n");
+    char *ptr_c = getLine();
+    while(*ptr_c != '\0'){
+	printf("%c", *ptr_c++);
+    }
+
+    printf("\n");
+
+    return 0;
+}
+
 char *getLine(void){
     const size_t sizeIncrement = 15;
     char *buffer = (char *)malloc(SIZE);
@@ -32,17 +46,4 @@ char *getLine(void){
     *currentPosition = '\0';
 
     return buffer; 
-}
-
-int main(int argc, char **argv)
-{
-    printf("Please input string:\n");
-    char *ptr_c = getLine();
-    while(*ptr_c != '\0'){
-	printf("%c", *ptr_c++);
-    }
-
-    printf("\n");
-
-    return 0;
 }
