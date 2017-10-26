@@ -3,7 +3,7 @@
 #include <string.h>
 
 void display(char * , int );
-void displayPointer(char *iArr, int size);
+void displayPointer(char *, int );
 int main(int argc, char **argv)
 {
     char arr0[20] = "Hello,jju!";

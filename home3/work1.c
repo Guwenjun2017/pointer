@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-void sort(int *arr, int size);
-void display(int arr[], int size);
+void sort(int *, int);
+void display(int arr[], int);
 int compare(int , int);
 
 int main(int argc, char **argv)
