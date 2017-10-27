@@ -5,7 +5,7 @@ int compare(char *, char *);
 void copy(char *, char *);
 void cat(char *, char *);
 void display(char *);
-int main(int argc, char argv)
+int main(int argc, char **argv)
 {
     char arr0[50] = "JiuJiang ";
     char arr1[50] = "University";
