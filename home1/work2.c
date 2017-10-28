@@ -13,13 +13,11 @@ void swap(int *p1, int *p2) {
 int main(int argc, char **argv)
 {
    int a,b;
-   int *ptr1;
-   int *ptr2;
+   int *ptr1 = &a;
+   int *ptr2 = &b;
 
    printf("Please input two int value:");
    scanf("%d,%d", &a, &b);
-   ptr1 = &a;
-   ptr2 = &b;
    if(a<b) {
 	swap(ptr1, ptr2);
 	printf("%d,%d\n", *ptr1, *ptr2);
