@@ -16,7 +16,7 @@ int main(int argc, char **argv)
     int *ptr_var1;
     int *ptr_cvar1;
     int *const cptr_var1 = (int *)malloc(sizeof(int));
-    int *const cptr_var2;
+    int *const cptr_var2 = (int *)malloc(sizeof(int));
     const int *const cptr_cvar1;
 
     printf("请输入变量var1:");
@@ -74,5 +74,7 @@ int main(int argc, char **argv)
 	return;
     }
 
+    free(cptr_var1);
+    free(cptr_var2);
     return 0;
 }

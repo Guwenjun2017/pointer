@@ -56,26 +56,34 @@ int main(int argc, char **argv)
     display(arr1, size);
     //sortIgnore(arr1, size);
     lower(arr1, 5, arr2);
-    display(arr2, size);
+    //display(arr2, size);
     printf("\n");
 
     return 0;
 }
 
-void lower(char **iArr0, int size, char **iArr1){
+void lowerArr(char **iArr0, int size, char **iArr1){
     for(int k = 0; k < size; k++){
 	for(int j = 0; j <strlen(iArr0[k]); j++){
-	    //iArr1[k][j] = tolower(iArr0[k][j]);
-	    strcpy(iArr1[k], iArr0[k]);
-	    printf("%c", tolower(iArr0[k][j]));
+	    //iArr1[k][j] = (char)tolower(iArr0[k][j]);
+	    //strcpy(iArr1[k], iArr0[k]);
+	    //printf("%c", iArr0[k][j]);
+	    //iArr1[k][j] = iArr0[k][j];
+	    //printf("%c", iArr1[k][j]);
 	//for(int i = 0; i < size; i++){
-	    //if(iArr0[k][j] >= 65 && iArr0[k][j] < 97){
-	    //    iArr0[k][j] += 32;	
-	    //    printf("%c", iArr0[k][j]);
-	    }
-	}
-
+	    if((iArr0[k][j]) >= 'A' && (iArr0[k][j] < 'a')){
+	        iArr0[k][j] += 'a' - 'A';	
+	        printf("%c", iArr0[k][j]);
+	    } 
+	} 
+    } 
     return;
+}
+int lower(int c){
+    if((iArr0[k][j]) >= 'A' && (iArr0[k][j] < 'a')){
+	iArr0[k][j] += 'a' - 'A';	
+	printf("%c", iArr0[k][j]);
+
 }
 
 
