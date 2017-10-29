@@ -32,6 +32,7 @@ int compare(char *iArr0, char *iArr1){
     int size;
     int result;
 
+    //将size大小赋为较短的字符串的长度
     if(strlen(iArr0) > strlen(iArr1))
 	size = strlen(iArr1);
     else 
@@ -45,6 +46,7 @@ int compare(char *iArr0, char *iArr1){
 		i =1;
 		result = 0;   
 		k++;
+		//如果size个字符都想等,则较长的字符串为大
 		if(k == size){
 		    if(strlen(iArr0) > strlen(iArr1))
 			result = 1;

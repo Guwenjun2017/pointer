@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-void swapwithPointers(int *ptr_num1, int *ptr_num2);
-void swap(int num1, int num2);
+void swapwithPointers(int *, int *);
+void swap(int, int);
 
 int main(int argc, char **argv)
 {
@@ -10,14 +10,14 @@ int main(int argc, char **argv)
     
     printf("Input 2 int value[逗号隔开]:");
     scanf("%d,%d", &num1, &num2);
-    //
+
     printf("用指针传递数据时:");
     swapwithPointers(&num1, &num2);
-    printf("%d,%d\n", num1, num2);
-    //
+    printf("num1 = %d, num2 = %d\n", num1, num2);
+    
     printf("用值传递数据时:");
     swap(num1, num2);
-    printf("%d,%d\n", num1, num2);
+    printf("num1 = %d, num2 = %d\n", num1, num2);
 
     return 0;
 }

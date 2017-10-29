@@ -1,71 +1,64 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct _node{
-    int data;
+    void *data;
     struct _node *next;
 }Node;
 
-typedef struct _list{
+typedef struct _linklist{
     Node *head;
     Node *tail;
     Node *current;
-}List;
+}Linklist;
 
-void initList(List *list){
+void initLinklist(Linklist *list){
     list->head = NULL;
     list->tail = NULL;
     list->current = NULL;
 }
 
-void addHead(List *list, int iData){
+void addHead(Linklist *list, void *iData){
     Node *node = (Node *)malloc(sizeof(Node));
     node->data = iData;
-    node->next = NULL;
 
-    if(list->head = NULL){
-	list-tail = node;
+    if(list->head == NULL){
+	list->tail = node;
+	node->next = NULL;
     }else{
 	node->next = list->head;
     }
     list->head = node;
+
+    return;
 }
 
-void addTail(List *list, int iData){
+void addTail(Linklist *list, void *iData){
     Node *node = (Node *)malloc(sizeof(Node));
     node->data = iData;
     node->next = NULL;
 
-    if(list->head = NULL){
+    if(list->head == NULL){
 	list->head = node;
     }else{
-	list->tail->next = node; 
+	list->tail->next = node;
     }
     list->tail = node;
+
+    return 0;
 }
 
-void delete(Link *List, Node *node){
-    if(node == list->head){
-	if(list->head->next == NULL){
-	    list->head = list->tail = NULL;
-	}else{
-	    list->head = list->head->next;
-	}
-    }else {
-	Node *tmp = list->head;
-	while (tmp != NULL && tmp->next != node){
-	    tmp
-	}
+void dispLinklist(Linklist *list){
+    Node *node = list->head;
+    while(node != NUll){
+	printf("%d", node->data);
+	node = node->next;
     }
+
+    return;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+int main(int argc, char **argv)
+{
+    Linklist *list1 = (Linklist *)malloc(Linklist);
+}
