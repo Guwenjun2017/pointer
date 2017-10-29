@@ -11,24 +11,24 @@
 int main(int argc, char **argv)
 {
     Linklist *list1 = (Linklist *)malloc(sizeof(Linklist));
-    Linklist *list2 = (Linklist *)malloc(sizeof(Linklist));
     addHead(list1, 1);
     addHead(list1, 3);
     addHead(list1, 5);
     addHead(list1, 7);
     addHead(list1, 9);
     Node *node = getNode(list1, 3, compare);
-    deleteNode(list1, node);
     dispLinklist(list1);
 
-    addTail(list2, 1);
-    addTail(list2, 3);
-    addTail(list2, 5);
-    addTail(list2, 7);
-    addTail(list2, 9);
-    dispLinklist(list2);
+    addTail(list1, 0);
+    addTail(list1, 2);
+    addTail(list1, 4);
+    addTail(list1, 6);
+    addTail(list1, 8);
+    dispLinklist(list1);
+    Node *node1 = getNode(list1, 4, compare);
+    deleteNode(list1, node1);
+    dispLinklist(list1);
 
     free(list1);
-    free(list2);
     return 0;
 }
