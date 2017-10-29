@@ -1,93 +1,64 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-void lower(char **, int ,char **);
+typedef int (fptrOperation)(char *, char *);
+char *stringTolower(char *);
+int compareIgnore(char *, char *);
+void sort(char **, int, fptrOperation);
+int lower(int c);
 void display(char **, int );
 int main(int argc, char **argv)
 {
-    char *arr0;
     char *arr1[] = {
 	"Bob", "Ted", "Carol", "Alice", "alice",
     };
-    char **arr2;
 
-    int size = sizeof(arr1)/sizeof(char *);
-    printf("%d\n", size);
+    sort(arr1, 5, compareIgnore);
+    display(arr1, 5);
 
-    void sort(char *iArr0[], int size){
-	int j = 1;
-	while(j){
-	    j = 0;
-	    for(int i = 0; i < size - 1; i++){
-		if((strcmp(iArr0[i], iArr0[i + 1])) > 0){
-		    j = 1;
-		    char *tmp = iArr0[i];
-		    iArr0[i] = iArr0[i + 1];
-		    iArr0[i + 1] = tmp;
-		}
-	    }
-	}
-
-	return;
-    }
-
-    void sortIgnore(char *iArr0[], int size, char **iArr1){
-	int j = 1;
-        while(j){
-            j = 0;
-            for(int i = 0; i < size - 1; i++){
-		lower(iArr0, 5, iArr1);
-        	if((strcmp(iArr0[i], iArr0[i + 1])) > 0){
-        	    j = 1;
-        	    char *tmp = iArr0[i];
-        	    iArr0[i] = iArr0[i + 1];
-        	    iArr0[i + 1] = tmp;
-        	}
-            }
-	} 
-	return;
-    }
-
-    //printf("请输入字符串:");
-    //scanf("%s", arr0);
-    //lower(arr0);
-    //display(arr0);
-    sort(arr1, size);
-    display(arr1, size);
-    //sortIgnore(arr1, size);
-    lower(arr1, 5, arr2);
-    //display(arr2, size);
-    printf("\n");
 
     return 0;
 }
 
-void lowerArr(char **iArr0, int size, char **iArr1){
-    for(int k = 0; k < size; k++){
-	for(int j = 0; j <strlen(iArr0[k]); j++){
-	    //iArr1[k][j] = (char)tolower(iArr0[k][j]);
-	    //strcpy(iArr1[k], iArr0[k]);
-	    //printf("%c", iArr0[k][j]);
-	    //iArr1[k][j] = iArr0[k][j];
-	    //printf("%c", iArr1[k][j]);
-	//for(int i = 0; i < size; i++){
-	    if((iArr0[k][j]) >= 'A' && (iArr0[k][j] < 'a')){
-	        iArr0[k][j] += 'a' - 'A';	
-	        printf("%c", iArr0[k][j]);
-	    } 
-	} 
-    } 
-    return;
+char *stringTolower(char *string){
+    char *tmp = (char *)malloc(strlen(string) + 1);
+    while(*string != 0){
+	*tmp++ = lower(*string++);
+    }
+
+    return tmp;
 }
+
 int lower(int c){
-    if((iArr0[k][j]) >= 'A' && (iArr0[k][j] < 'a')){
-	iArr0[k][j] += 'a' - 'A';	
-	printf("%c", iArr0[k][j]);
+    if(c >= 'A' && (c < 'a')){
+	c += 'a' - 'A';	
+    }
 
+    return 0;
+} 
+
+int compareIgnore(char *a, char *b){
+    char *a1 = stringTolower(a);
+    char *b1 = stringTolower(b);
+    return strcmp(a1, b1);
 }
 
 
-
+void sort(char **arr, int iSize, fptrOperation operation){
+    int j = 1;
+    while(j){
+	j = 0;
+	for(int i = 0; i < iSize -1; i++){
+	    if(operation(arr[i], arr[i + 1]) > 0){
+		j = 1;
+		char *tmp = arr[i];
+		arr[i] = arr[i + 1];
+		arr[i + 1] = tmp;
+	    }
+	}
+    }
+}
 
 void display(char *iArr0[], int size){
     for(int i = 0; i < size; i++){
