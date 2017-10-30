@@ -29,10 +29,10 @@ void initLinklist(Linklist *list){
 void addHead(Linklist *list, DataType iData){
     Node *node = (Node *)malloc(sizeof(Node));
     node->data = iData;
+    node->next = NULL;
 
     if(list->head == NULL){
 	list->tail = node;
-	node->next = NULL;
     }else
 	node->next = list->head;
     list->head = node;
@@ -71,7 +71,7 @@ void dispLinklist(Linklist *list){
 int compare(DataType iData1, DataType iData2){
     if(iData1 > iData2){
 	return 1;
-    }else if(iData1 = iData2){
+    }else if(iData1 == iData2){
 	return 0;
     }else
 	return -1;
@@ -121,8 +121,15 @@ int main(int argc, char **argv)
     addHead(list1, 5);
     addHead(list1, 7);
     addHead(list1, 9);
-    Node *node = getNode(list1, 3, compare);
+    Node *node = getNode(list1, 7, compare);
     delete(list1, node);
+    addTail(list1, 0);
+    addTail(list1, 2);
+    addTail(list1, 4);
+    addTail(list1, 6);
+    addTail(list1, 8);
+    Node *node1 = getNode(list1, 0, compare);
+    delete(list1, node1);
     dispLinklist(list1);
 
     return 0;

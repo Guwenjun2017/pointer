@@ -12,10 +12,10 @@ void initLinklist(Linklist *list){
 void addHead(Linklist *list, DataType iData){
     Node *node = (Node *)malloc(sizeof(Node));
     node->data = iData;
+    node->next = NULL;
 
     if(list->head == NULL){
 	list->tail = node;
-	node->next = NULL;
     }else{
 	node->next = list->head;
     }
@@ -44,7 +44,7 @@ void addTail(Linklist *list, DataType iData){
 int compare(DataType iData0, DataType iData1){
     if(iData0 > iData1)
 	return 1;
-    else if(iData0 = iData1)
+    else if(iData0 == iData1)
 	return 0;
     else 
 	return -1;

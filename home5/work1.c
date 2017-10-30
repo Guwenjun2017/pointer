@@ -17,6 +17,7 @@ int main(int argc, char **argv)
     addHead(list1, 7);
     addHead(list1, 9);
     Node *node = getNode(list1, 3, compare);
+    deleteNode(list1, node);
     dispLinklist(list1);
 
     addTail(list1, 0);
