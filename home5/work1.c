@@ -11,6 +11,7 @@
 int main(int argc, char **argv)
 {
     Linklist *list1 = (Linklist *)malloc(sizeof(Linklist));
+    initLinklist(list1);
     addHead(list1, 1);
     addHead(list1, 3);
     addHead(list1, 5);
