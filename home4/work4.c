@@ -4,6 +4,7 @@
 
 typedef int (fptrOperation)(char *, char *);
 char *stringTolower(char *);
+int compare(char *, char *);
 int compareIgnore(char *, char *);
 void sort(char **, int, fptrOperation);
 int lower(int c);
@@ -14,6 +15,10 @@ int main(int argc, char **argv)
 	"Bob", "Ted", "Carol", "Alice", "alice",
     };
 
+    printf("sort:\n");
+    sort(arr1, 5, compare);
+    display(arr1, 5);
+    printf("sort[ignore]:\n");
     sort(arr1, 5, compareIgnore);
     display(arr1, 5);
 
@@ -23,20 +28,27 @@ int main(int argc, char **argv)
 
 char *stringTolower(char *string){
     char *tmp = (char *)malloc(strlen(string) + 1);
+    //必须使用start指针来保存指针tmp,为后面返回字符指针作铺垫.(问老师怎么描述合适).
+    char *start = tmp;
     while(*string != 0){
 	*tmp++ = lower(*string++);
     }
 
-    return tmp;
+    return start;
 }
 
+//抄袭了内置函数tolower,别打我.(捂脸~)
 int lower(int c){
-    if(c >= 'A' && (c < 'a')){
+    if((c >= 'A') && (c < 'a')){
 	c += 'a' - 'A';	
     }
 
-    return 0;
+    return c;
 } 
+
+int compare(char *a, char *b){
+    return strcmp(a, b);
+}
 
 int compareIgnore(char *a, char *b){
     char *a1 = stringTolower(a);
@@ -60,9 +72,9 @@ void sort(char **arr, int iSize, fptrOperation operation){
     }
 }
 
-void display(char *iArr0[], int size){
+void display(char **iArr0, int size){
     for(int i = 0; i < size; i++){
-	printf("%s\t", iArr0[i]);
+	printf("%s\t", *(iArr0 + i));
     }
     printf("\n");
 
