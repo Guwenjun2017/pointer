@@ -19,6 +19,7 @@ int main(int argc, char **argv)
 
 void sort(int *arr, int size) {
     for(int i = 0; i <size - 1; i++){
+	//注意指针不要越界
 	for(int j = 0; j < size - 1; j++){
 	    if((compare(arr[j], arr[j + 1])) > 0){
 		int tmp = arr[j] ;
@@ -41,13 +42,10 @@ void display(int *arr, int size) {
 } 
 
 int compare(int num1, int num2) {
-    int result;
     if(num1 > num2)
-	result = 1;
+	return 1;
     else if(num1 < num2)
-	result = -1;
+	return -1;
     else
-	result = 0;
-
-    return result;
+	return 0;
 }
