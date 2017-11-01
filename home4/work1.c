@@ -16,6 +16,8 @@ int main(int argc, char **argv)
     displayPointer(arr1, strlen("Hello,jju!"));
     printf("\n");
 
+    free(arr1);
+    return 0;
 }
 
 void display(char iArr[], int size){
