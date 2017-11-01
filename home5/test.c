@@ -107,6 +107,66 @@ void display(Linklist *list){
     printf("\n");
 }
 
+//返回节点位置
+int Locate(Linklist *list, DataType iData){
+    Node *node = list->head;
+    int i = 1;
+    if(list->head == NULL)
+	return 0;
+    while(node != NULL){
+	if(node->data == iData)
+	    return i;
+	else{
+	    node = node->next;
+	    i++;
+	}
+    }
+    if(!node)
+	return 0;
+    
+}
+
+//在第i个位置插入元素
+int insertList(Linklist *list, int i, DataType iData){
+    Node *node;
+    int j = 1;
+    node = list->head;
+    //找到第 i-1 个结点的前驱节点
+    while(node->next != NULL && j < i - 1){
+	node = node->next;
+	j++;
+    }
+    if(j != i - 1){
+	printf("error.");
+	return 0;
+    }
+    Node *Insertnode = (Node *)malloc(sizeof(Node));
+    Insertnode->data = iData;
+
+    Insertnode->next = node->next;
+    node->next = Insertnode;
+    return 1;
+}
+
+//删除第i个节点
+int deleteNode(Linklist *list, int i){
+    Node *nodeQ, *node;
+    int j = 1;
+    nodeQ = list->head;
+    while(nodeQ != NULL && nodeQ->next != NULL && j < i -1){
+	nodeQ = nodeQ->next;
+	j++;
+    }
+    if(j != i-1){
+	printf("error.\n");
+    }
+    node = nodeQ->next;
+
+    nodeQ->next = node->next;
+    free(node);
+    return 1;
+}
+
 int main(int argc, char **argv)
 {
     Linklist *list = (Linklist *)malloc(sizeof(Linklist));
@@ -117,9 +177,22 @@ int main(int argc, char **argv)
     addHead(list, 5);
     addHead(list, 7);
     addHead(list, 9);
+
+    printf("删掉含指定数据的节点:\n");
     Node *node = getNode(list, 3, compare);
     delete(list, node);
     display(list);
 
+    printf("包含'7'的结点的位置:\n");
+    int a = Locate(list, 7);
+    printf("%d\n", a);
+
+    printf("向指定位置插入节点:\n");
+    insertList(list, 3, 11);
+    display(list);
+
+    printf("delete:\n");
+    deleteNode(list, 3);
+    display(list);
     return 0;
 }
