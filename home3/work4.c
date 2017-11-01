@@ -38,6 +38,6 @@ int main(int argc, char **argv)
 }
 
 void display_2D_Arr(int **iArr, int iRow, int i){
-    printf("arr[%d][%d] Address: %p Value: %d\n", iRow, i, *((iArr + iRow) + i), *(*(iArr + iRow) + i));
+    printf("arr[%d][%d] Address: %p Value: %d\n", iRow, i, (*(iArr + iRow) + i), *(*(iArr + iRow) + i));
 }
 
