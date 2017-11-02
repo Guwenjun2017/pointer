@@ -191,6 +191,7 @@ int main(int argc, char **argv)
     insertList(list, 3, 11);
     display(list);
 
+    printf("删除指定位置的节点:\n");
     printf("delete:\n");
     deleteNode(list, 3);
     display(list);
