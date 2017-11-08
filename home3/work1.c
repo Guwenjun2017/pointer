@@ -1,27 +1,31 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-void sort(int *, int);
+int *sort(int *, int);
 void display(int arr[], int);
-int compare(int , int);
 
 int main(int argc, char **argv)
 {
     int arr[] = {
-	3,0,4,1,6,7,8,9,2,5
+        3,0,4,1,6,7,8,9,2,5,
     };
     int size = sizeof(arr) / sizeof(int);
+    int *sortedArr = (int *)malloc(sizeof(int) * size);
 
-    sort(arr, size);
-    display(arr, size);
+    sortedArr = sort(arr, size);
+    display(sortedArr, size);
 
+    free(sortedArr);
     return 0;
 }
 
-void sort(int *arr, int size) {
+int *sort(int *arr, int size) {
+    int *r = (int *)malloc(sizeof(int) * size);
     for(int i = 0; i <size - 1; i++){
 	//注意指针不要越界
 	for(int j = 0; j < size - 1; j++){
-	    if((compare(arr[j], arr[j + 1])) > 0){
+	    if(arr[j] > arr[j + 1]){
 		int tmp = arr[j] ;
 		arr[j] = arr[j + 1];
 		arr[j + 1] = tmp;
@@ -29,8 +33,11 @@ void sort(int *arr, int size) {
 	}
 
     }
+    for(int j = 0; j < size; j++){
+	r[j] = arr[j];
+    }
 
-    return;
+    return r;
 } 
 
 void display(int *arr, int size) {
@@ -40,12 +47,3 @@ void display(int *arr, int size) {
 
     return;
 } 
-
-int compare(int num1, int num2) {
-    if(num1 > num2)
-	return 1;
-    else if(num1 < num2)
-	return -1;
-    else
-	return 0;
-}
