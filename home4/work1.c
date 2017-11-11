@@ -11,12 +11,10 @@ int main(int argc, char **argv)
     display(arr0, arrSize);
     printf("\n");
 
-    char *arr1 =(char *)malloc(strlen("Hello,jju!") + 1);
-    arr1 = "Hello,jju!";
+    char *arr1;
     displayPointer(arr1, strlen("Hello,jju!"));
     printf("\n");
 
-    free(arr1);
     return 0;
 }
 
@@ -27,6 +25,8 @@ void display(char iArr[], int size){
 }
  
 void displayPointer(char *iArr, int size){
+    iArr =(char *)malloc(strlen("Hello,jju!") + 1);
+    iArr = "Hello,jju!";
     for(int i = 0; i < size; i++){
 	printf("%c", *(iArr + i));
     }

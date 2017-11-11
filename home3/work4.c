@@ -41,3 +41,8 @@ void display_2D_Arr(int **iArr, int iRow, int i){
     printf("arr[%d][%d] Address: %p Value: %d\n", iRow, i, (*(iArr + iRow) + i), *(*(iArr + iRow) + i));
 }
 
+/*
+ * 使用数组的指针表示法实现数组元素的值及地址的输出.
+ * 文件work4.c中41行,(*(Arr + iRow) + i) 先解引(Arr + iRow)获取对应行的首地址,在加i获取指定元素的地址.
+ * 要获取指定元素的值,解引其地址即可.
+ */

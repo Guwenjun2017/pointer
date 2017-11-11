@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 
 char *stringTolower(char *string){
     char *tmp = (char *)malloc(strlen(string) + 1);
-    //必须使用start指针来保存指针tmp,为后面返回字符指针作铺垫.(问老师怎么描述合适).
+    //必须使用start指针来保存指针tmp,为后面返回字符指针作铺垫.
     char *start = tmp;
     while(*string != 0){
 	*tmp++ = lower(*string++);
@@ -37,7 +37,7 @@ char *stringTolower(char *string){
     return start;
 }
 
-//抄袭了内置函数tolower,别打我.(捂脸~)
+//等效内置函数tolower.
 int lower(int c){
     if((c >= 'A') && (c < 'a')){
 	c += 'a' - 'A';	

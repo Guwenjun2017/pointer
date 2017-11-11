@@ -19,7 +19,7 @@ int main(int argc, char **argv)
     printf("复制:");
     copy(arr3, arr2);
     display(arr3);
-    printf("拼接:\n");
+    printf("拼接:");
     cat(arr0, arr1);
     display(arr0);
 
