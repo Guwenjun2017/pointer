@@ -9,6 +9,10 @@ void initLinklist(Linklist *list){
 }
 
 //头插法
+/*
+ * 1.初始化一个节点,并将接收的数据赋给它.
+ *
+ */
 void addHead(Linklist *list, DataType iData){
     Node *node = (Node *)malloc(sizeof(Node));
     node->data = iData;
