@@ -51,7 +51,7 @@ int compare(char *iArr0, char *iArr1){
 		    if(strlen(iArr0) > strlen(iArr1))
 			result = 1;
 		    else 
-			result = -1;
+			result = 0;
 		}
 	    }
 	    else if((int)iArr0[j] > (int)iArr1[j])
@@ -95,3 +95,13 @@ void display(char *iArr0){
 
     return;
 }
+
+/*
+ * 个人感觉strcmp的实现比较难
+ * 首先,定义的compare函数接受两个char型指针,先用一个int变量size保存较短字符的长度,
+ * 然后将数组中的各单个字符逐个比较,若比较出有字符不等,则返回对应的值;
+ * 若比较了size次,均是相等,则有两种情况:
+ * 1:两实参长度相等,两者相等,返回0
+ * 2:前者较长,返回 1
+ *
+ */

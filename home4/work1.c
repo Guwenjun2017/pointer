@@ -25,9 +25,14 @@ void display(char iArr[], int size){
 }
  
 void displayPointer(char *iArr, int size){
-    iArr =(char *)malloc(strlen("Hello,jju!") + 1);
+    iArr = (char *)malloc(strlen("Hello,jju!") + 1);
     iArr = "Hello,jju!";
     for(int i = 0; i < size; i++){
 	printf("%c", *(iArr + i));
     }
 } 
+/*
+ * 第一种输出用数组的方式,通过下标逐个输出.
+ * 第二种输出用指针的形式,通过解引每个字符的地址,来逐个输出每个字符,最终输出整个字符串.
+ */
+

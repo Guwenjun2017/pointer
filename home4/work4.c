@@ -3,12 +3,14 @@
 #include <string.h>
 
 typedef int (fptrOperation)(char *, char *);
+ 
 char *stringTolower(char *);
 int compare(char *, char *);
 int compareIgnore(char *, char *);
 void sort(char **, int, fptrOperation);
 int lower(int c);
 void display(char **, int );
+
 int main(int argc, char **argv)
 {
     char *arr1[] = {
@@ -22,13 +24,12 @@ int main(int argc, char **argv)
     sort(arr1, 5, compareIgnore);
     display(arr1, 5);
 
-
     return 0;
 }
 
 char *stringTolower(char *string){
     char *tmp = (char *)malloc(strlen(string) + 1);
-    //必须使用start指针来保存指针tmp,为后面返回字符指针作铺垫.
+    //必须使用start指针来保存指针tmp,为后面返回字符串指针作铺垫.(把字符串'牵'出来)
     char *start = tmp;
     while(*string != 0){
 	*tmp++ = lower(*string++);
@@ -56,8 +57,8 @@ int compareIgnore(char *a, char *b){
     return strcmp(a1, b1);
 }
 
-
 void sort(char **arr, int iSize, fptrOperation operation){
+    //定义j,保证各个较大元素逐个向后移
     int j = 1;
     while(j){
 	j = 0;
