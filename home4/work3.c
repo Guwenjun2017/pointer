@@ -7,7 +7,7 @@ char *format(char *buffer, size_t size, const char *name, size_t quantify, size_
     printf("formatString length: %d\n", strlen(formatString));
     size_t formatStringLength = strlen(formatString) - 6;
     size_t nameLengh = strlen(name);
-    size_t length = formatStringLength + nameLengh + 3 + 3 +1;
+    size_t length = formatStringLength + nameLengh + 4 + 4 +1;
 
     if(buffer == NULL){
 	buffer = (char *)malloc(length);
