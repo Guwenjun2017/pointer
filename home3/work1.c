@@ -14,10 +14,10 @@ int main(int argc, char **argv)
     int *sortedArr = sort(arr, size);
 
     display(sortedArr, size);
+    free(sortedArr); 
 
-    free(sortedArr);
     return 0;
-}
+} 
 
 int *sort(int *arr, int size) {
     int *r = (int *)malloc(sizeof(int) * size);
@@ -25,7 +25,7 @@ int *sort(int *arr, int size) {
 	//注意指针不要越界
 	for(int j = 0; j < size - i - 1; j++){
 	    if(arr[j] > arr[j + 1]){
-		int tmp = arr[j] ;
+		int tmp = arr[j];
 		arr[j] = arr[j + 1];
 		arr[j + 1] = tmp;
 	    }

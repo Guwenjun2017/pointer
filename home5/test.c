@@ -131,4 +131,9 @@ int main(int argc, char ** argv)
     addTail(list, 8);
     addTail(list, 10);
     displaylinkedList(list);
+
+    printf("删除数据域为8的结点后打印:\n");
+    Node *tmp_node = getNode(list, 8, compare);
+    deleteNode(list, tmp_node);
+    displaylinkedList(list);
 }

@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #ifndef list_h
 #define list_h
 #define DataType int

@@ -2,6 +2,7 @@
 #include <string.h>
 
 int compare(char *, char *);
+int length(char *);
 void copy(char *, char *);
 void cat(char *, char *);
 void display(char *);
@@ -12,6 +13,7 @@ int main(int argc, char **argv)
     char arr2[50] = "JiuJiang University";
     char arr3[50];
 
+    printf("arr0's length: %d\n", length(arr0));
     printf("%d\t%d\n", arr0[0], arr1[0]);
     printf("比较:");
     printf("[1表示前者大于后者,-1相反,0相等]\n");
@@ -26,6 +28,16 @@ int main(int argc, char **argv)
     return 0;
 }
 
+int length(char *arr){
+    int count = 0;
+    char *start = arr;
+    while(*start != '\0'){
+	count++;
+	start++;
+    }
+
+    return count;
+}
 int compare(char *iArr0, char *iArr1){
     int i = 1;
     int k = 0;
@@ -33,10 +45,10 @@ int compare(char *iArr0, char *iArr1){
     int result;
 
     //将size大小赋为较短的字符串的长度
-    if(strlen(iArr0) > strlen(iArr1))
-	size = strlen(iArr1);
+    if(length(iArr0) > length(iArr1))
+	size = length(iArr1);
     else 
-	size = strlen(iArr0);
+	size = length(iArr0);
 
     while(i == 1){
 	i = 0;
@@ -48,7 +60,7 @@ int compare(char *iArr0, char *iArr1){
 		k++;
 		//如果size个字符都想等,则较长的字符串为大
 		if(k == size){
-		    if(strlen(iArr0) > strlen(iArr1))
+		    if(length(iArr0) > length(iArr1))
 			result = 1;
 		    else 
 			result = 0;
@@ -65,7 +77,7 @@ int compare(char *iArr0, char *iArr1){
 }
 
 void copy(char *iArr0, char *iArr1){
-    int size = strlen(iArr1);
+    int size = length(iArr1);
     
     for(int j = 0; j < size; j++){
 	*(iArr0 + j) = *(iArr1 + j);
@@ -75,8 +87,8 @@ void copy(char *iArr0, char *iArr1){
 }
 
 void cat(char *iArr0, char *iArr1){
-    int size1 = strlen(iArr0);
-    int size2 = strlen(iArr1);
+    int size1 = length(iArr0);
+    int size2 = length(iArr1);
 
     for(int j = 0; j < size2; j++){
 	*(iArr0 + size1 + j) = *(iArr1 + j);
@@ -86,7 +98,7 @@ void cat(char *iArr0, char *iArr1){
 }
 
 void display(char *iArr0){
-    int size = strlen(iArr0);
+    int size = length(iArr0);
 
     for(int j = 0; j <size; j++){
 	printf("%c", *(iArr0 + j));
